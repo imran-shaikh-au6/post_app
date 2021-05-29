@@ -1,15 +1,17 @@
 import Navbar from "./Navbar";
 import Post from "./Post";
 import React from 'react';
-import CreateModal from "./CreateModal";
 import axios from "axios"
 
 function App() {
-  const [modalVisible,setModalVisible] = React.useState(false)
   const [data,setdata] = React.useState(null)
-    React.useEffect(async()=>{
+    React.useEffect(()=>{
+      const functionCall = async()=>{
         const response = await axios.get("https://jsonplaceholder.typicode.com/posts")
         setdata(response.data)
+      }
+      functionCall()
+        
     },[])
   const handleCreatePost = async(e)=>{
     const callApi = await axios.post("https://jsonplaceholder.typicode.com/posts",e)
@@ -30,7 +32,7 @@ const handleDeletePost = async(e)=>{
 }
   return (
     <div className="App">
-      <Navbar handleCreatePost={handleCreatePost} setModalVisible={setModalVisible}/>
+      <Navbar handleCreatePost={handleCreatePost} />
       <Post handleDeletePost={handleDeletePost} data={data} />
     </div>
   );

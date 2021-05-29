@@ -6,7 +6,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Progress from "./Progress"
-import axios from "axios"
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -27,7 +26,6 @@ const useStyles = makeStyles({
 export default function SinglePost(props) {
   const classes = useStyles();
   const {data,handleDeletePost}= props
-  const bull = <span className={classes.bullet}>•</span>;
 
 const handleDelete = (e,pId)=>{
   handleDeletePost(pId)
@@ -59,7 +57,9 @@ const handleDelete = (e,pId)=>{
       </CardActions>
     </Card>
           </Grid>
-      )) : <Progress/>}
+      )) : <Grid item container justify="center" alignItems="center" style={{height:"100vh",width:"100%"}}>
+              <Progress/>
+          </Grid>}
       
       </>
     

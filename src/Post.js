@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from "axios"
 import SinglePost from './SinglePost';
 const Post = (props)=>{
     const {data,handleDeletePost} =props

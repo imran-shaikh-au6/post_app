@@ -3,10 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import CloseIcon from '@material-ui/icons/Close';
 import { Grid,TextField,Button } from '@material-ui/core';
-import axios from "axios"
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
+
 
 function getModalStyle() {
   const top = 50 ;
@@ -42,17 +39,8 @@ export default function CreateModal(props) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
   const [inputDataTitle, setinputDataTitle] = React.useState("");
   const [inputDataDesc, setinputDataDesc] = React.useState("");
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
  
   const handleDesc=(e)=>{
